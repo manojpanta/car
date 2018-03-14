@@ -1,4 +1,9 @@
 class Car
+  
+  attr_reader :odometer,
+              :make,
+              :color,
+              :model
 
   def initialize(make, model, color = "white")
     @make = make
@@ -16,9 +21,11 @@ class Car
     puts "BEEEEEEEP!"
   end
 
-  def drive(distance)
-    puts "I am driving #{distance} miles."
-    @odometer += distance
+  def drive
+    puts "How long you want to drive?"
+    answer = gets.chomp
+    puts "I am driving #{answer} miles."
+    @odometer += answer.to_i
   end
 
   def start
@@ -34,5 +41,6 @@ end
 
 car = Car.new("toyota", "camry")
 p car
-car.start
-car.start
+car.drive
+car.drive
+p car.odometer
